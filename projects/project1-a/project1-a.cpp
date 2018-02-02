@@ -1,19 +1,25 @@
 #include<iostream>
 #include<fstream>
+#include<sstream>
 using namespace std;
 
 int main(){
-    ifstream num; //input file stream
+    ifstream stream; //input file stream
     string ccNum; //string of credit card numbers
+    stringstream ss ("cardnumbers");
     
-    num.open("creditcardnumbers.txt");
-    if(!num.is_open()){
+    stream.open("creditcardnumbers.txt");
+    if(!stream.is_open()){
+        cout << "Could not open file" << endl;
         return 1;
+    }
         
-    while(!num.eof()){ //keep reading numbers until you've reached the end
-        num >> ccNum;
+    while(getline (stream, ccNum)){ //while loop to read in the numbers
+        ss << ccNum;
+        cout << ccNum << endl;
     }
-    num.close(); //close file when done
-    }
-
+    stream.close(); //close file when done
+    
+    return 0;
+    
 }
