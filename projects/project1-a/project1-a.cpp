@@ -1,3 +1,12 @@
+/*
+ * Name: Deny Vugdalic
+ * Date: 1/30/18
+ * Description: This project reads in inputs from a text file.
+ *              The text file contains strings of credit card numbers.
+ *              The program then verifies that the credit card numbers contained in
+ *              the text file are valid by using Luhn's Algorithm.
+ */
+ 
 #include<iostream>
 #include<fstream>
 #include<sstream>
@@ -20,6 +29,8 @@ int main(){
     }
     stream.close(); //close file when done
     
+
     return 0;
-    
+ 
+
 }
