@@ -12,20 +12,21 @@
 #include<sstream>
 using namespace std;
 
-
-/*void LuhnAlg(string ccNum){
+/*
+void LuhnAlg(string ccNum){
     int sum = 0;
-    int digit = length(ccNum);
-    int mod2 = digit%2;
-    for(i = 0; i < digit.length()-1)
-        int digit = int[i];
-    if(i%2 = mod2)
+    int digit;
+    int mod;
+    for (int i = 0;)
+    if(i%2 = mod)
         digit = digit * 2;
     if(digit > 9)
         digit = digit - 9;
     sum = sum + digit;
     }
+    return sum%10;
 */
+
 int main(){
     ifstream stream; //input file stream
     string ccNum; //string of credit card numbers
@@ -41,10 +42,11 @@ int main(){
         ss << ccNum;
         cout << ccNum << endl;
     
-
+}
     stream.close(); //close file when done
     
     return 0;
 
-}
+
+
 }
