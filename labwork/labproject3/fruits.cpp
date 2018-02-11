@@ -24,6 +24,11 @@ int main(){
         cout << list << endl;
     }
     
+/*cout << "Enter another fruit" << endl;
+    int fruit;
+    cin >> fruit;
+//attempting to write to a file, work in progress
+*/    
 
     stream.close(); //close file when done
     

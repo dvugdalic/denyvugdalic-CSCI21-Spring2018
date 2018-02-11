@@ -43,3 +43,22 @@ const Money operator +(const Money& amount1, const Money& amount2) {
 }
 
 // REST OF CLASS FUNCTION DEFINITIONS GO HERE
+
+const Money operator -(const Money& amount1, const Money& amount2){
+  
+}
+
+bool operator ==(const Money &amount1, const Money &amount2){
+  
+}
+
+ const Money operator -(const Money &amount){
+   
+ }
+ 
+ ostream& operator <<(ostream &out, const Money &amount){
+   
+ }
+ 
+ int main(){
+ }
