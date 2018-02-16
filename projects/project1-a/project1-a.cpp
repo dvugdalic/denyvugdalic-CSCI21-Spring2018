@@ -12,21 +12,21 @@
 #include<sstream>
 using namespace std;
 
-/*
-void LuhnAlg(string ccNum){
+    /*void LuhnAlg(string ccNum){
     int sum = 0;
-    int digit;
-    int mod;
-    for (int i = 0;)
-    if(i%2 = mod)
+    int digit = ccNum.length();
+    int mod2 = digit%2;
+    int i = 0;
+    for(i = 0; i < digit-1;)
+        int digit = ccNum[i];
+    if(i%2 == mod2)
         digit = digit * 2;
     if(digit > 9)
         digit = digit - 9;
     sum = sum + digit;
-    }
-    return sum%10;
-*/
-
+   }
+   */
+    
 int main(){
     ifstream stream; //input file stream
     string ccNum; //string of credit card numbers
@@ -41,8 +41,32 @@ int main(){
     while(getline (stream, ccNum)){ //while loop to read in the numbers
         ss << ccNum;
         cout << ccNum << endl;
-    
-}
+        
+        if (ccNum.at(0) == '3' && (ccNum.at(1) == '4' || ccNum.at(1) == '7') && ccNum.length() == 15){
+            cout << "American Express" << endl;
+        }
+        else if(ccNum.at(0) == '6' && ccNum.at(1) == '0' && ccNum.at(2) == '1' && ccNum.at(3) == '1' && ccNum.length() == 16){
+            cout << "Discover" << endl;
+        }
+        else if(ccNum.substr(0,6) >= "622126" && ccNum.substr(0,6) <= "622925" && ccNum.length() == 16){
+            cout << "Discover" << endl;
+        }
+        else if(ccNum.at(0) == '6' && ccNum.at(1) == '4' && (ccNum.at(2) == '4' || ccNum.at(2) == '5' || ccNum.at(2) == '6' || ccNum.at(2) == '7' || ccNum.at(2) == '8' || ccNum.at(2) == '9') && ccNum.length() == 16){
+            cout << "Discover" << endl;
+        }
+        else if(ccNum.at(0) == '6' && ccNum.at(1) == '5' && ccNum.length() == 16){
+            cout << "Discover" << endl;
+        }
+        else if(ccNum.at(0) == '5' && (ccNum.at(1) == '1' || ccNum.at(1) == '2' || ccNum.at(1) == '3' || ccNum.at(1) == '4' || ccNum.at(1) == '5') && ccNum.length() == 16){
+            cout << "MasterCard" << endl;
+        }
+        else if(ccNum.at(0) == '4' && (ccNum.length() == 13 || ccNum.length() == 14 || ccNum.length() == 15 || ccNum.length() == 16)){
+            cout << "Visa" << endl;
+        }
+        else
+            cout << "Unknown card type" << endl;
+    }
+
     stream.close(); //close file when done
     
     return 0;
