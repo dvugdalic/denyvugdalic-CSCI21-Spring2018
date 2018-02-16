@@ -32,7 +32,7 @@ int main(){
     string ccNum; //string of credit card numbers
     stringstream ss ("cardnumbers");
     
-    stream.open("creditcardnumbers.txt");
+    stream.open("creditcardnumbers.txt"); //opens the text file I created/
     if(!stream.is_open()){
         cout << "Error: could not open file" << endl;
         return 1;
@@ -40,27 +40,27 @@ int main(){
         
     while(getline (stream, ccNum)){ //while loop to read in the numbers
         ss << ccNum;
-        cout << ccNum << endl;
+        cout << ccNum << endl; 
         
-        if (ccNum.at(0) == '3' && (ccNum.at(1) == '4' || ccNum.at(1) == '7') && ccNum.length() == 15){
+        if (ccNum.at(0) == '3' && (ccNum.at(1) == '4' || ccNum.at(1) == '7') && ccNum.length() == 15){ //checks the first 2 numbers to validate
             cout << "American Express" << endl;
         }
-        else if(ccNum.at(0) == '6' && ccNum.at(1) == '0' && ccNum.at(2) == '1' && ccNum.at(3) == '1' && ccNum.length() == 16){
+        else if(ccNum.at(0) == '6' && ccNum.at(1) == '0' && ccNum.at(2) == '1' && ccNum.at(3) == '1' && ccNum.length() == 16){ //checks the first 4 numbers to validate
             cout << "Discover" << endl;
         }
-        else if(ccNum.substr(0,6) >= "622126" && ccNum.substr(0,6) <= "622925" && ccNum.length() == 16){
+        else if(ccNum.substr(0,6) >= "622126" && ccNum.substr(0,6) <= "622925" && ccNum.length() == 16){ //checks the first 6 numbers and makes sure they are within a range
             cout << "Discover" << endl;
         }
-        else if(ccNum.at(0) == '6' && ccNum.at(1) == '4' && (ccNum.at(2) == '4' || ccNum.at(2) == '5' || ccNum.at(2) == '6' || ccNum.at(2) == '7' || ccNum.at(2) == '8' || ccNum.at(2) == '9') && ccNum.length() == 16){
+        else if(ccNum.at(0) == '6' && ccNum.at(1) == '4' && (ccNum.at(2) == '4' || ccNum.at(2) == '5' || ccNum.at(2) == '6' || ccNum.at(2) == '7' || ccNum.at(2) == '8' || ccNum.at(2) == '9') && ccNum.length() == 16){ //checks the first 3 numbers to validate
             cout << "Discover" << endl;
         }
-        else if(ccNum.at(0) == '6' && ccNum.at(1) == '5' && ccNum.length() == 16){
+        else if(ccNum.at(0) == '6' && ccNum.at(1) == '5' && ccNum.length() == 16){ //checks the first 2 numbers to validate
             cout << "Discover" << endl;
         }
-        else if(ccNum.at(0) == '5' && (ccNum.at(1) == '1' || ccNum.at(1) == '2' || ccNum.at(1) == '3' || ccNum.at(1) == '4' || ccNum.at(1) == '5') && ccNum.length() == 16){
+        else if(ccNum.at(0) == '5' && (ccNum.at(1) == '1' || ccNum.at(1) == '2' || ccNum.at(1) == '3' || ccNum.at(1) == '4' || ccNum.at(1) == '5') && ccNum.length() == 16){ // checks the first 2 numbers to validate
             cout << "MasterCard" << endl;
         }
-        else if(ccNum.at(0) == '4' && (ccNum.length() == 13 || ccNum.length() == 14 || ccNum.length() == 15 || ccNum.length() == 16)){
+        else if(ccNum.at(0) == '4' && (ccNum.length() == 13 || ccNum.length() == 14 || ccNum.length() == 15 || ccNum.length() == 16)){ //checks the first number to validate
             cout << "Visa" << endl;
         }
         else
