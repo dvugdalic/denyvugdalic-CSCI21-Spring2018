@@ -15,6 +15,9 @@ using std::ostream;
 using std::setfill;
 using std::setw;
 
+#ifndef MONEY_H
+#define MONEY_H
+
 /*
  * Class Money.
  * A class that handles amounts of money in U.S. Currency.
@@ -101,4 +104,5 @@ class Money {
   int cents_;
 };
 
+#endif
 // REST OF HEADER GUARD GOES HERE
