@@ -6,6 +6,9 @@
 
 // ADD HEADER GUARD HERE
 
+#ifndef TEMPERATURE_H
+#define TEMPERATURE_H
+
 
 #include <string>
 #include <sstream>
@@ -112,5 +115,7 @@ class Temperature {
  private:
   double kelvin_;
 };
+
+#endif
 
 // REST OF HEADER GUARD GOES HERE
