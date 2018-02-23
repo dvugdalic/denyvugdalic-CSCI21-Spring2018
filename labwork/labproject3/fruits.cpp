@@ -2,11 +2,35 @@
  * Name: Deny Vugdalic
  * Date: 2/10/18
  */
- 
+#include "fruits.h"
 #include<iostream>
 #include<fstream>
 #include<sstream>
 using namespace std;
+
+
+
+void WordList::clear(){
+    
+}
+
+/*(bool WordList::newAllowDupes(){
+    
+}
+
+bool WordList::addWord(){
+    
+}
+
+bool WordList::removeWord(){
+    
+}
+
+bool WordList::hasWord(){
+    
+}
+*/
+//wasn't sure how to make these work
 
 int main(){
     ifstream stream; //input file stream
@@ -24,11 +48,10 @@ int main(){
         cout << list << endl;
     }
     
-/*cout << "Enter another fruit" << endl;
+cout << "Enter another fruit" << endl;
     int fruit;
     cin >> fruit;
-//attempting to write to a file, work in progress
-*/    
+
 
     stream.close(); //close file when done
     
