@@ -1,6 +1,6 @@
 /*
  * Name: Deny Vugdalic
- * Date: 1/30/18
+ * Date: 2/14/2018
  * Description: This project reads in inputs from a text file.
  *              The text file contains strings of credit card numbers.
  *              The program then verifies that the credit card numbers contained in
@@ -30,6 +30,11 @@ int main(){
     ifstream stream; //input file stream
     string ccNum; //string of credit card numbers
     stringstream ss ("cardnumbers");
+    string type;
+    int limit;
+    int CurrentBalance;
+    string transactions;
+    string reason;
     
     stream.open("creditcardnumbers.txt"); //opens the text file I created/
     if(!stream.is_open()){
@@ -65,6 +70,22 @@ int main(){
         else
             cout << "Unknown card type" << endl;
     }
+    
+        /*if (type == "Gold"){
+            limit == "3000";
+        }
+        
+        else if(type == "Platinum"){
+            limit == "5000";
+        }
+        else if(type == "Corporate"){
+            limit == "10000";
+        }
+        if(transaction == "denied"{
+            
+    cout << transaction << reason << endl;
+        }
+        */
 
     stream.close(); //close file when done
     
