@@ -17,6 +17,7 @@ class creditCard{
         string ccNum;
         string firstName;
         string lastName;
+        string denied;
         double creditLimit;
         double currentBalance;
         double purchaseAmount;
