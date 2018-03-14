@@ -8,8 +8,7 @@
  */
  
 #include<iostream>
-#include<fstream>
-#include<sstream>
+#include<string>
 using namespace std;
 
 #include "project1b.h"
@@ -27,64 +26,104 @@ void LuhnAlg(string ccNum){
         digit = digit - 9;
     sum = sum + digit;
    }
-    
-int main(){
-    ifstream stream; //input file stream
-    string ccNum; //string of credit card numbers
-    stringstream ss ("cardnumbers");
-    
-    stream.open("creditcardnumbers.txt"); //opens the text file I created/
-    if(!stream.is_open()){
-        cout << "Error: could not open file" << endl;
-        return 1;
+
+void goldCard::setcreditLimit(const string ccType){
+    string goldCard;
+    if(ccType == "goldCard")
+       double creditLimit = 1000.00; //set limit to $1,000
+}
+
+void platinumCard::setcreditLimit(const string ccType){
+    string platinumCard;
+    if(ccType == "platinumCard")
+        double creditLimit = 5000.00; //set limit to $5,000
+}
+
+void corporateCard::setcreditLimit(const string ccType){
+    string corporateCard;
+    if(ccType == "corporateCard")
+        double creditLimit = 10000.00; //set limit to $10,000
+}
+
+void goldCard::setcreditOverdraft(const string ccType){
+    if(ccType == "goldCard")
+        int creditOverdraft = 0; //does not allow for any overdraft
+        
+}
+
+void platinumCard::setcreditOverdraft(const string ccType){
+    if(ccType == "platinumCard")
+        int creditOverdraft = 1000; //allows a $1,000 overdraft
+}
+
+void corporateCard::setcreditOverdraft(const string ccType){
+    if(ccType == "corporateCard"){
+        int creditOverdraft = 5000; //allows a $5,000 overdraft
     }
-        
-    while(getline (stream, ccNum)){ //while loop to read in the numbers
-        ss << ccNum;
-        cout << ccNum << endl; 
-        
-        if (ccNum.at(0) == '3' && (ccNum.at(1) == '4' || ccNum.at(1) == '7') && ccNum.length() == 15){ //checks the first 2 numbers to validate
-            cout << "American Express" << endl;
-        }
-        else if(ccNum.at(0) == '6' && ccNum.at(1) == '0' && ccNum.at(2) == '1' && ccNum.at(3) == '1' && ccNum.length() == 16){ //checks the first 4 numbers to validate
-            cout << "Discover" << endl;
-        }
-        else if(ccNum.substr(0,6) >= "622126" && ccNum.substr(0,6) <= "622925" && ccNum.length() == 16){ //checks the first 6 numbers and makes sure they are within a range
-            cout << "Discover" << endl;
-        }
-        else if(ccNum.at(0) == '6' && ccNum.at(1) == '4' && (ccNum.at(2) == '4' || ccNum.at(2) == '5' || ccNum.at(2) == '6' || ccNum.at(2) == '7' || ccNum.at(2) == '8' || ccNum.at(2) == '9') && ccNum.length() == 16){ //checks the first 3 numbers to validate
-            cout << "Discover" << endl;
-        }
-        else if(ccNum.at(0) == '6' && ccNum.at(1) == '5' && ccNum.length() == 16){ //checks the first 2 numbers to validate
-            cout << "Discover" << endl;
-        }
-        else if(ccNum.at(0) == '5' && (ccNum.at(1) == '1' || ccNum.at(1) == '2' || ccNum.at(1) == '3' || ccNum.at(1) == '4' || ccNum.at(1) == '5') && ccNum.length() == 16){ // checks the first 2 numbers to validate
-            cout << "MasterCard" << endl;
-        }
-        else if(ccNum.at(0) == '4' && (ccNum.length() == 13 || ccNum.length() == 14 || ccNum.length() == 15 || ccNum.length() == 16)){ //checks the first number to validate
-            cout << "Visa" << endl;
-        }
-        else
-            cout << "Unknown card type" << endl;
+}
+
+void goldCard::setcreditRebate(const string ccRebate){
+        if(ccRebate == "goldCard")
+        float creditRebate = (purchaseAmount * 0.01); //credit rebate is equal to 1% of purchase amount
+}
+
+void platinumCard::setcreditRebate(const string ccRebate){
+        if(ccRebate == "platinumCard")
+        float creditRebate = (purchaseAmount * 0.02); //credit rebate is equal to 2% of purchase amount
+}
+
+void corporateCard::setcreditRebate(const string ccRebate){
+        if(ccRebate == "corporateCard")
+        float creditRebate = (purchaseAmount * 0.05); //credit rebate is equal to 5% of purchase amount
+}
+
+void goldCard::getBalance(double currentBalance){
+    currentBalance = purchaseAmount - creditRebate;
+    cout << currentBalance;
+}
+
+void platinumCard::getBalance(double currentBalance){
+    currentBalance = purchaseAmount - creditRebate;
+    cout << currentBalance;
+}
+
+void corporateCard::getBalance(double currentBalance){
+    currentBalance = purchaseAmount - creditRebate;
+    cout << currentBalance;
+}
+
+bool goldCard::isBlocked(){
+    if ((currentBalance + purchaseAmount) > creditLimit){ //if purchase plus existing balance is greater than the limit, deny the transaction
+        return true;
     }
-    
-    ifstream tstream; //input file stream
-    string transact; //string of credit card numbers
-    stringstream ts ("transactions");
-    
-    stream.open("transactions.txt"); //opens the text file I created/
-    if(!stream.is_open()){
-        cout << "Error: could not open file" << endl;
-        return 1;
-        
+    else
+        return false; //otherwise, allow the transaction
+}
+
+bool platinumCard::isBlocked(){
+    if((currentBalance + purchaseAmount) > creditLimit + 1000){ //if purchase plus existing balance is greater than the limit + 1000 for overdraft, deny the transaction
+        return true;
     }
+    else
+        return false; //otherwise, allow the transaction
+}
 
-        
+bool corporateCard::isBlocked(){
+    if((currentBalance + purchaseAmount) > creditLimit + 5000){ //if purchase plus existing balance is greater than the limit + 5000 for overdraft, deny the transaction
+        return true;
+    }
+    else
+        return false; //otherwise, allow the transaction
+}
 
-    stream.close(); //close file when done
+void goldCard::cardDenied(){
+    if ((currentBalance + purchaseAmount) > creditLimit)
+        cout << "Transaction denied. Limit reached." << endl;
     
-    return 0;
+}
 
-
-
+void platinumCard::cardDenied(){
+    if ((currentBalance + purchaseAmount) > creditLimit + 1000)
+    cout << "Transaction denied. Limit with overdraft reached." << endl;.
+    cout << "Your current balance is:" << " " << currentBalance << endl;
 }
