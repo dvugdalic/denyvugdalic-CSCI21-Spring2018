@@ -42,6 +42,7 @@ class goldCard : public creditCard {
         void setcreditOverdraft(const string ccType);
         void setcreditRebate(const string ccRebate);
         void getBalance(double currentBalance);
+        void cardDenied(string denied);
 };
 
 class platinumCard : public creditCard {
@@ -58,6 +59,7 @@ class platinumCard : public creditCard {
         void setcreditOverdraft(const string ccType);
         void setcreditRebate(const string ccRebate);
         void getBalance(double currentBalance);
+        void cardDenied(string denied);
 };
 
 class corporateCard : public creditCard {
@@ -74,6 +76,7 @@ class corporateCard : public creditCard {
         void setcreditOverdraft(const string ccType);
         void setcreditRebate(const string ccRebate);
         void getBalance(double currentBalance);
+        void cardDenied(string denied);
 };
 
 class ccTransaction{

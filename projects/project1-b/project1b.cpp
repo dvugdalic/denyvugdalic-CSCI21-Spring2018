@@ -115,15 +115,3 @@ bool corporateCard::isBlocked(){
     else
         return false; //otherwise, allow the transaction
 }
-
-void goldCard::cardDenied(){
-    if ((currentBalance + purchaseAmount) > creditLimit)
-        cout << "Transaction denied. Limit reached." << endl;
-    
-}
-
-void platinumCard::cardDenied(){
-    if ((currentBalance + purchaseAmount) > creditLimit + 1000)
-    cout << "Transaction denied. Limit with overdraft reached." << endl;.
-    cout << "Your current balance is:" << " " << currentBalance << endl;
-}
