@@ -26,6 +26,8 @@ int main(){
     if(!stream.is_open()){
         cout << "Error: could not open file. Please try again or select another one." << endl;
         return 1;
-}
+    }
+
+
 
 }
