@@ -29,53 +29,57 @@ class creditCard{
         
 };
 
-class goldCard : public creditCard {
+class Gold : public creditCard {
     public:
-        goldCard(); //constructor
+        Gold(); //constructor
         double creditLimit;
         double currentBalance;
         int creditRebate;
         bool isBlocked(); //determines if the card will be denied
+        void denialReason(const string ccType);
+        void accountSummary(const string ccType);
         
     private:
         string getcreditType();
         void setcreditLimit(const string ccType);
         void setcreditOverdraft(const string ccType);
-        void setcreditRebate(const string ccRebate);
+        void setcreditRebate(const string ccType);
         void getBalance(double currentBalance);
         void cardDenied(string denied);
 };
 
-class platinumCard : public creditCard {
+class Platinum : public creditCard {
     public:
-        platinumCard(); //constructor
+        Platinum(); //constructor
         double creditLimit;
         double currentBalance;
         int creditRebate;
         bool isBlocked(); //determines if the card will be denied
+        void denialReason(const string ccType);
     
     private:
         string getcreditType();
         void setcreditLimit(const string ccType);
         void setcreditOverdraft(const string ccType);
-        void setcreditRebate(const string ccRebate);
+        void setcreditRebate(const string ccType);
         void getBalance(double currentBalance);
         void cardDenied(string denied);
 };
 
-class corporateCard : public creditCard {
+class Corporate : public creditCard {
     public:
-        corporateCard(); //constructor
+        Corporate(); //constructor
         double creditLimit;
         double currentBalance;
         int creditRebate;
         bool isBlocked(); //determines if the card will be denied
+        void denialReason(const string ccType);
     
     private:
         string getcreditType();
         void setcreditLimit(const string ccType);
         void setcreditOverdraft(const string ccType);
-        void setcreditRebate(const string ccRebate);
+        void setcreditRebate(const string ccType);
         void getBalance(double currentBalance);
         void cardDenied(string denied);
 };

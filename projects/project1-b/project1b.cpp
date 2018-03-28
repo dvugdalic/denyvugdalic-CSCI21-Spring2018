@@ -27,72 +27,88 @@ void LuhnAlg(string ccNum){
     sum = sum + digit;
    }
 
-void goldCard::setcreditLimit(const string ccType){
-    string goldCard;
-    if(ccType == "goldCard")
+void Gold::setcreditLimit(const string ccType){
+    string Gold;
+    if(ccType == "Gold")
        double creditLimit = 1000.00; //set limit to $1,000
 }
 
-void platinumCard::setcreditLimit(const string ccType){
-    string platinumCard;
-    if(ccType == "platinumCard")
+void Platinum::setcreditLimit(const string ccType){
+    string Platinum;
+    if(ccType == "Platinum")
         double creditLimit = 5000.00; //set limit to $5,000
 }
 
-void corporateCard::setcreditLimit(const string ccType){
-    string corporateCard;
-    if(ccType == "corporateCard")
+void Corporate::setcreditLimit(const string ccType){
+    string Corporate;
+    if(ccType == "Corporate")
         double creditLimit = 10000.00; //set limit to $10,000
 }
 
-void goldCard::setcreditOverdraft(const string ccType){
-    if(ccType == "goldCard")
-        int creditOverdraft = 0; //does not allow for any overdraft
+void Gold::setcreditOverdraft(const string ccType){
+    if(ccType == "Gold")
+        double creditOverdraft = 0.00; //does not allow for any overdraft
         
 }
 
-void platinumCard::setcreditOverdraft(const string ccType){
-    if(ccType == "platinumCard")
-        int creditOverdraft = 1000; //allows a $1,000 overdraft
+void Platinum::setcreditOverdraft(const string ccType){
+    if(ccType == "Platinum")
+        double creditOverdraft = 1000.00; //allows a $1,000 overdraft
 }
 
-void corporateCard::setcreditOverdraft(const string ccType){
-    if(ccType == "corporateCard"){
-        int creditOverdraft = 5000; //allows a $5,000 overdraft
+void Corporate::setcreditOverdraft(const string ccType){
+    if(ccType == "Corporate"){
+        double creditOverdraft = 5000.00; //allows a $5,000 overdraft
     }
 }
 
-void goldCard::setcreditRebate(const string ccRebate){
-        if(ccRebate == "goldCard")
-        float creditRebate = (purchaseAmount * 0.01); //credit rebate is equal to 1% of purchase amount
+void Gold::setcreditRebate(const string ccType){
+        if(ccType == "Gold"){
+            float creditRebate = (purchaseAmount * 0.01); //credit rebate is equal to 1% of purchase amount
+    }
+
 }
 
-void platinumCard::setcreditRebate(const string ccRebate){
-        if(ccRebate == "platinumCard")
-        float creditRebate = (purchaseAmount * 0.02); //credit rebate is equal to 2% of purchase amount
+void Platinum::setcreditRebate(const string ccType){
+        string ccRebate;
+        if(ccRebate == "Platinum"){
+            float creditRebate = (purchaseAmount * 0.02); //credit rebate is equal to 2% of purchase amount
+    }
+
 }
 
-void corporateCard::setcreditRebate(const string ccRebate){
-        if(ccRebate == "corporateCard")
-        float creditRebate = (purchaseAmount * 0.05); //credit rebate is equal to 5% of purchase amount
+void Corporate::setcreditRebate(const string ccType){
+        string ccRebate;
+        if(ccRebate == "Corporate"){
+            float creditRebate = (purchaseAmount * 0.05); //credit rebate is equal to 5% of purchase amount
+    }
 }
 
-void goldCard::getBalance(double currentBalance){
-    currentBalance = purchaseAmount - creditRebate;
-    cout << currentBalance;
+void Gold::getBalance(double currentBalance){
+    string ccType;
+    if(ccType == "Gold"){
+        currentBalance = purchaseAmount - creditRebate;
+        cout << currentBalance;
+    }
 }
 
-void platinumCard::getBalance(double currentBalance){
-    currentBalance = purchaseAmount - creditRebate;
-    cout << currentBalance;
+void Platinum::getBalance(double currentBalance){
+    string ccType;
+    if(ccType == "Platinum"){
+        currentBalance = purchaseAmount - creditRebate;
+        cout << currentBalance;
+    }
 }
 
-void corporateCard::getBalance(double currentBalance){
-    currentBalance = purchaseAmount - creditRebate;
-    cout << currentBalance;
+void Corporate::getBalance(double currentBalance){
+    string ccType;
+    if(ccType == "Corporate"){
+        currentBalance = purchaseAmount - creditRebate;
+        cout << currentBalance;
+    }
 }
 
-bool goldCard::isBlocked(){
+bool Gold::isBlocked(){
     if ((currentBalance + purchaseAmount) > creditLimit){ //if purchase plus existing balance is greater than the limit, deny the transaction
         return true;
     }
@@ -100,7 +116,7 @@ bool goldCard::isBlocked(){
         return false; //otherwise, allow the transaction
 }
 
-bool platinumCard::isBlocked(){
+bool Platinum::isBlocked(){
     if((currentBalance + purchaseAmount) > creditLimit + 1000){ //if purchase plus existing balance is greater than the limit + 1000 for overdraft, deny the transaction
         return true;
     }
@@ -108,10 +124,39 @@ bool platinumCard::isBlocked(){
         return false; //otherwise, allow the transaction
 }
 
-bool corporateCard::isBlocked(){
+bool Corporate::isBlocked(){
     if((currentBalance + purchaseAmount) > creditLimit + 5000){ //if purchase plus existing balance is greater than the limit + 5000 for overdraft, deny the transaction
         return true;
     }
     else
         return false; //otherwise, allow the transaction
+}
+
+void Gold::denialReason(const string ccType){
+    if ((ccType == "Gold") && (isBlocked() == true)){
+        cout << "Your card has been denied. You have reached your limit." << endl;
+    }
+}
+
+void Platinum::denialReason(const string ccType){
+    if((ccType == "Platinum") && (isBlocked() == true)){
+        cout << "Warning! You have reached your limit and any overdraft allowance. Your card will be denied." << endl;
+    }
+}
+
+void Corporate::denialReason(const string ccType){
+    if((ccType == "Corporate") && (isBlocked() == true)){
+        cout << "Warning! You have reached your limit and any overdraft allowance. Your card will be denied." << endl;
+    }
+}
+
+void Gold::accountSummary(const string ccType){
+    string currentBalance;
+    string purchaseAmount;
+    string ccRebate;
+    if(ccType == "Gold"){
+        cout << currentBalance << endl;
+        cout << purchaseAmount << endl;
+        cout << ccRebate << endl;
+    }
 }
