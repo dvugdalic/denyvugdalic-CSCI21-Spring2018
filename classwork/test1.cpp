@@ -13,7 +13,6 @@
 #include "node.h"
 
 
-}
 
 TEST_CASE("Default Constructor") {
   Node node, node2;
@@ -37,7 +36,7 @@ TEST_CASE("Default Constructor") {
   }
 }
 
-TEST_CASE("Overloaded Constructor") {
+/*TEST_CASE("Overloaded Constructor") {
   Node node("Jane"), node2;
   Node* p_node2 = &node2;
   SECTION("Accessor for Contents") {
@@ -85,6 +84,4 @@ TEST_CASE("Testing Pointers") {
   }
 }
 
-TEST_CASE("Testing Stack") {
-    
-}
+*/

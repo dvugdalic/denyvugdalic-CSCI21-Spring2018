@@ -19,7 +19,7 @@
         string unitsCompleted;
      public:
         Student(); //constructor
-        //destructor
+        ~Student(); //destructor
         //get
         //set
  };
@@ -28,19 +28,24 @@
      private:
         
      public:
-        Node(); //constructor
-        //thing
-        //next = null
-        //destructor
-        //delete next
-        //next = null
+        Node::Node(int init, Node* nextLocation){ //constructor
+        this->value = init;
+        this->nextNode = nextLocation;
+        }
+        Node(int value = 0, Node* next = nullptr)
+        Node* next = NULL; //next = null
+        ~Node(){ //destructor
+         delete node;
+        }
+        delete next;
+        Node* next = NULL; //next = null
         //constructor(thing)
-        //next = null
+        Node* next = NULL; //next = null
         //setNext(address)
         //next = address
-        //getNext()
-        //return *next
-        //getThing()
+        Node* GetNext(); //get next
+        return *next;
+        Node* GetThing(); //get thing
         
         
  };
