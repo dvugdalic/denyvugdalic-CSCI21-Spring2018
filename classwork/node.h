@@ -32,4 +32,21 @@ class Node {
         
         
 };
+
+class Stack {
+    private:
+        int size;
+    
+    public:
+        Node* top;
+        Node* next;
+        Node* contents;
+        Node* set_contents;
+        Node* bottom;
+        Stack(); //constructor
+        ~Stack(); //destructor
+        void isEmpty();
+        void GetLength();
+    
+}
 #endif
