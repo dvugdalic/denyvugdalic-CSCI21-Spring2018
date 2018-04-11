@@ -21,12 +21,20 @@ int main(){
     ifstream stream; //input file stream
     string battle;
     stringstream ss ("battleship");
-    
     stream.open("battleship.txt"); //opens the text file I created for the board
     if(!stream.is_open()){
         cout << "Error: could not open file. Please try again or select another one." << endl;
         return 1;
     }
+    
+    cout << "Starting Game..." << endl;
+    cout << "Please choose a square to attack." << endl;
+    
+        //if it's a miss
+        cout << "Sorry, you missed!" << endl;
+        
+        //if it's a hit
+        cout << "You got a hit!" << endl;
 
 
 

@@ -55,6 +55,12 @@ class gameBoard {
 
 queue<string> computerAI;
 
+queue<string> myTournament;
+enqueue<string> userID;
+dequeue<string> player1;
+dequeue<string> player2;
+enqueue<sting> winner;
+
 
 
 void printBoard(int grid){
@@ -69,6 +75,11 @@ void printAttack(int grid){
     
 }
 
+//void printWinner(string player){
+    //cout << winner.userID << endl;
+}
 
-
+//void printLoser(string player){
+    //cout << loser.userID << endl;
+}
 #endif
