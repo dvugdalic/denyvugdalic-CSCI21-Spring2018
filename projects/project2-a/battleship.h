@@ -63,9 +63,9 @@ enqueue<sting> winner;
 
 
 
-void printBoard(int grid){
-    
-}
+//void printBoard(int grid){
+    //int grid[10][10] = {{A,B,C,D,E,F,G,H,I,J}, {0,1,2,3,4,5,6,7,8,9}};
+//}
 
 void printComputerBoard(int grid){
     
@@ -77,9 +77,13 @@ void printAttack(int grid){
 
 //void printWinner(string player){
     //cout << winner.userID << endl;
-}
+//}
 
 //void printLoser(string player){
     //cout << loser.userID << endl;
-}
+//}
+
+void missShip(string battleship){
+    
+//}
 #endif

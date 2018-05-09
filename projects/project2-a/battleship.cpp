@@ -31,10 +31,18 @@ int main(){
     cout << "Please choose a square to attack." << endl;
     
         //if it's a miss
-        cout << "Sorry, you missed!" << endl;
+        cout << "You missed!" << endl;
         
         //if it's a hit
         cout << "You got a hit!" << endl;
+        
+        //if square does not exist
+        cout << "That square does not exist. Please choose another one." << endl;
+        
+        //if invalid row OR column
+        cout << "That square does not exist. Please choose another one." << endl;
+        
+        
 
 
 
