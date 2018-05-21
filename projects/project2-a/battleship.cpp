@@ -26,17 +26,26 @@ int main(){
         cout << "Error: could not open file. Please try again or select another one." << endl;
         return 1;
     }
-    
+    /*int main(int argc, char* argv[]){
+        ifstream filestream;
+        cout << "Opening file..." << argv[1] << endl;
+        filestream.is_open()){
+            cout << "Could not open file." << argv[1] << endl;
+            return 1;
+        }
+    }
+        */
+    }
     cout << "Starting Game..." << endl;
     cout << "Please choose a square to attack." << endl;
     
-        //if it's a miss
+        if hitShip = 1
         cout << "You missed!" << endl;
         
-        //if it's a hit
+        else
         cout << "You got a hit!" << endl;
         
-        //if square does not exist
+        if 
         cout << "That square does not exist. Please choose another one." << endl;
         
         //if invalid row OR column

@@ -16,6 +16,9 @@ class Player {
     public:
         Player(); //constructor
         ~Player(); //destructor
+        int userID;
+        string winner;
+        string loser;
         
     private:
         void printAttack(int grid);
@@ -48,9 +51,8 @@ class gameBoard {
     private:
         string getshipLocation();
         string setshipLocation();
-        void hitShip();
-        void missShip();
-        void sinkShip();
+        bool hitShip();
+        bool sinkShip();
 };
 
 queue<string> computerAI;
@@ -63,27 +65,31 @@ enqueue<sting> winner;
 
 
 
-//void printBoard(int grid){
-    //int grid[10][10] = {{A,B,C,D,E,F,G,H,I,J}, {0,1,2,3,4,5,6,7,8,9}};
-//}
+void printBoard(string grid){
+    string grid[10][10] = {{"A"," B"," C"," D"," E"," F"," G"," H"," I"," J"}, {"0"," 1"," 2"," 3"," 4"," 5"," 6"," 7"," 8"," 9"}};
+}
 
 void printComputerBoard(int grid){
-    
+    string grid[10][10] = {{"A"," B"," C"," D"," E"," F"," G"," H"," I"," J"}, {"0"," 1"," 2"," 3"," 4"," 5"," 6"," 7"," 8"," 9"}};
 }
 
 void printAttack(int grid){
     
 }
 
-//void printWinner(string player){
-    //cout << winner.userID << endl;
-//}
+void printWinner(string player){
+    cout << winner.userID << endl;
+}
 
-//void printLoser(string player){
-    //cout << loser.userID << endl;
-//}
+void printLoser(string player){
+    cout << loser.userID << endl;
+}
 
-void missShip(string battleship){
-    
-//}
+bool hitShip(int attackShip){
+    if attackShip = 1
+        return true;
+    else
+        return false;
+}
+
 #endif
